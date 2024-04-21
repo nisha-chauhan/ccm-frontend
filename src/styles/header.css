@@ -1,0 +1,29 @@
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    background-color: aliceblue;
+    top: 0;
+
+    >h1{
+        text-transform: uppercase;
+    }
+    
+    >main{
+        width: 80%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        >a{
+            margin: 1rem;
+            color: rgb(44,44,44);
+        }
+        >a:hover{
+            color: #5853ff;;
+        }
+    }
+}
