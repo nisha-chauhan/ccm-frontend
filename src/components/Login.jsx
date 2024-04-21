@@ -1,6 +1,10 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,13 +15,26 @@ const Login = () => {
   const handelPasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  const showAlert = (e) => {
+  const showAlert = async (e) => {
     e.preventDefault();
     if (email && password) {
-      window.alert(`your email is: ${email} \n your password is: ${password}`);
-    } else {
-      window.alert(`email and password are required`);
+      try {
+        const response = await axios.post("http://localhost:5000/login", {
+          email,
+          password,
+        });
+        console.log(response.status);
+        if (response.status === 200) {
+          return navigate("/");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
+    //   window.alert(`your email is: ${email} \n your password is: ${password}`);
+    // } else {
+    //   window.alert(`email and password are required`);
+    // }
   };
 
   return (
