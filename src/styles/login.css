@@ -1,62 +1,108 @@
-.login{
-    width:100%;
-    height: 100vh;
-    background-color: #090c31;
-    margin-top: 1rem;
+.loginContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: #a480f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    >main{
-        background-color: aliceblue;
-        width: 85%;
-        padding: 3rem;
-        height: 28rem;
-        border-radius: 0 200px 0px 200px;
-        /* >h1{
-            text-align: center;
-    padding: 1rem;
-        } */
-        >form{
-            margin: 5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+  > main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 5rem;
+    border-radius: 30px;
+    height: 90%;
+    width: 90%;
 
+    > .formDiv {
+      height: 80%;
+      flex: 1;
+      gap: 1rem;
+      padding: 5rem;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 7px 7px 14px #e3e3e3, -7px -7px 14px #ffffff;
 
-            >div{
-                height: 3rem;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                width:85%;
-                margin: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-                >label{
-                    width: 20%;
-                    margin: 0 1rem;
-                }
-                >input{
-                    align-self: stretch;
-                    width: 80%;
-                    padding: 1rem;
-                    border-radius: 5px;
-                    border: 1px solid rgba(123, 123, 123, 0.6);
-                    outline: none;
-                }
-            }
-            >button{
-                margin: 3rem 0;
-                padding: 0.7rem;
-                border: none;
-                border-radius: 5px;
-                background-color: #5853ff;;
-                color:#FFFFFF;
-                width: 200px;
-                font: 500 1rem "Roboto" ;
-                
-            }
-            >button:hover{
-                opacity: 0.9;
-            }
+      > form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        > .heading {
+          gap: 0.3rem;
+          display: flex;
+          flex-direction: column;
+
+          > a {
+            text-decoration: underline;
+            color: #a480f2;
+            font: 400 cursive;
+          }
         }
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 0.4rem;
+
+          > label {
+            font: 500 1rem "Roboto";
+            margin-left: 4px;
+          }
+          > input {
+            align-self: stretch;
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid rgba(123, 123, 123, 0.6);
+            outline: none;
+          }
+        }
+        > button {
+          margin: 3rem 0;
+          padding: 0.7rem;
+          border: none;
+          border-radius: 5px;
+          background-color: #a480f2;
+          color: #ffffff;
+          width: 200px;
+          font: 500 1rem "Roboto";
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          justify-content: center;
+          cursor: pointer;
+        }
+        > button:hover {
+          opacity: 0.9;
+        }
+      }
     }
+    > .imgDiv {
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+  }
+}
+
+.loader {
+  width: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #fff #0000;
+  animation: l1 1s infinite;
+}
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
 }

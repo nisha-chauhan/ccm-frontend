@@ -10,6 +10,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handelNameChange = (e) => {
     setName(e.target.value);
   };
@@ -45,6 +47,7 @@ const Signup = () => {
       // window.alert(
       //   `Signup button is clicked \n Your details are:\n Name: ${name}\nEmail: ${email}\nPassword: ${password}\nConfirm Password: ${confirmPassword}`
       // );
+      setLoading(true);
       try {
         const response = await axios.post("http://localhost:5000/signup", {
           name,
@@ -58,6 +61,7 @@ const Signup = () => {
       } catch (error) {
         console.log(error);
       }
+      setLoading(false);
     }
   };
 
@@ -96,13 +100,16 @@ const Signup = () => {
           <div>
             <label htmlFor="">Confirm Password</label>
             <input
-              type="password"
+              type={"password"}
               placeholder="Confirm password"
               value={confirmPassword}
               onChange={handelConfirmPasswordChange}
             />
           </div>
-          <button type="submit">Signup</button>
+          <button type="submit">
+            Signup
+            {loading && <div className="loader"></div>}
+          </button>
         </form>
       </main>
     </div>

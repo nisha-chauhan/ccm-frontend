@@ -1,12 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import img from "../assets/login.jpg";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // const [variable, setVariable] = useState(initial - value);
   const handleEmailChange = (e) => {
@@ -18,6 +19,8 @@ const Login = () => {
   const showAlert = async (e) => {
     e.preventDefault();
     if (email && password) {
+      setLoading(true);
+
       try {
         const response = await axios.post("http://localhost:5000/login", {
           email,
@@ -38,32 +41,59 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <main>
-        <h1>Login Here</h1>
-        <form onSubmit={showAlert}>
-          <div>
-            <label htmlFor="">Email</label>
-            <input
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={handleEmailChange}
-            />
+    <>
+      <div className="loginContainer">
+        <main>
+          <div className="imgDiv">
+            <img src={img} alt="login image" />
           </div>
-          <div>
-            <label htmlFor="">Password</label>
-            <input
-              type="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={handelPasswordChange}
-            />
+
+          <div className="formDiv">
+            <div className="heading">
+              <h1>Login</h1>
+
+              <p>
+                Doesn&apos;t have an account yet?{" "}
+                <Link
+                  to={"/signUp"}
+                  style={{
+                    textDecoration: "underline",
+                    color: "#a480f2",
+                    font: " 900 1rem cursive",
+                  }}
+                >
+                  SignUp
+                </Link>
+              </p>
+            </div>
+            <form action="" onSubmit={showAlert}>
+              <div>
+                <label htmlFor="">Email</label>
+                <input
+                  type="text"
+                  value={email}
+                  placeholder="Enter email"
+                  onChange={handleEmailChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="">Password</label>
+                <input
+                  type="text"
+                  value={password}
+                  onChange={handelPasswordChange}
+                  placeholder="Enter password"
+                />
+              </div>
+              <button type="submit">
+                Login
+                {loading && <div className="loader"></div>}
+              </button>
+            </form>
           </div>
-          <button type="submit">Login</button>
-        </form>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 };
 
