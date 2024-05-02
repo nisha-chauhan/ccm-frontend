@@ -1,0 +1,62 @@
+.textContainer > h1 {
+  font: 1.5rem "Roboto";
+  padding: 0.5rem;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.3rem;
+}
+.info {
+  font: 1.5rem "Roboto";
+  padding: 0.5rem;
+  letter-spacing: 0.2rem;
+}
+.uploadSeclectBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  color: white;
+  width: 175px;
+  background-color: #2f80ec;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.desform {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+
+    > label {
+      font: 500 1rem "Roboto";
+      margin-left: 4px;
+    }
+    > input,
+    textarea {
+      align-self: stretch;
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid rgba(123, 123, 123, 0.6);
+      outline: none;
+    }
+  }
+}
+
+.loader {
+  width: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #fff #0000;
+  animation: l1 1s infinite;
+}
+
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
